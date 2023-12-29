@@ -1,0 +1,34 @@
+crops
+---------------
+crop_name -> plantings.crop_name
+grow_time
+harvest_num
+harvest_per
+companions
+sun_pref
+
+growers
+---------------
+grower_name -> plots.plot_owner
+email
+password_hash
+first_name
+
+plantings
+---------------
+planting_id -> plots.plot_contents
+crop_name <- crops.crop_name
+planted_dt
+harvestable_when = crops.grow_time + /.planted_dt
+companioned = surrounding plots.plot_contents|crop_name in crops.companions
+light_match = crops.sun_pref == plots.sun
+
+plots
+---------------
+grid_value = ",".join([str(x), str(y)])
+x
+y
+plot_owner <- growers.grower_name
+plot_contents <- plantings.planting_id
+sun
+watered
