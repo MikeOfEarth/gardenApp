@@ -43,7 +43,7 @@ class GrowerList(MethodView):
     @bp.arguments(GrowerSchema)
     def post(self, grower_data):
         try:
-            grower=GrowerModel
+            grower=GrowerModel()
             grower.from_entry(grower_data)
             grower.commit()
             return{'message':f'{grower.grower_name} Created'},201

@@ -43,7 +43,7 @@ class PlotList(MethodView):
     @bp.arguments(PlotSchema)
     def post(self, plot_data):
         try:
-            plot=PlotModel
+            plot=PlotModel()
             plot.from_entry(plot_data)
             plot.commit()
             return{'message':f'{plot.grid_value} Created'},201

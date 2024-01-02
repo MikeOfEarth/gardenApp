@@ -7,9 +7,11 @@ class PlotModel(db.Model):
     __tablename__ = 'plots'
 
     # grid_value = ",".join([str(x), str(y)])
-    grid_value = db.Column(db.String, primary_key = True)
-    x = db.Column(db.NUMERIC(2, 0), nullable = False)
-    y = db.Column(db.NUMERIC(2, 0), nullable = False)
+    grid_value = db.Column(db.Integer, primary_key = True)
+    # x = db.Column(db.NUMERIC(2, 0), nullable = False)
+    # y = db.Column(db.NUMERIC(2, 0), nullable = False)
+    x = db.Column(db.Integer, nullable = False)
+    y = db.Column(db.Integer, nullable = False)
     plot_owner = db.Column(db.String, db.ForeignKey('growers.grower_name'))
     plot_contents = db.Column(db.Integer, db.ForeignKey('plantings.planting_id'))
     sun = db.Column(db.String(15))
@@ -28,7 +30,8 @@ class PlotModel(db.Model):
 
     def from_entry(self, plot_entry):
         for k, v in plot_entry.items():
-            if k!='grid_value':
-                setattr(self, k, v)
-        setattr(self,'grid_value',(",".join([str(self['x']), str(self['y'])])))
+            setattr(self, k, v)
+        #     if k!='grid_value':
+        #         setattr(self, k, v)
+        # setattr(self,'grid_value',(",".join([str(self['x']), str(self['y'])])))
 

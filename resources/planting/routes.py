@@ -43,7 +43,7 @@ class PlantingList(MethodView):
     @bp.arguments(PlantingSchema)
     def post(self, planting_data):
         try:
-            planting=PlantingModel
+            planting=PlantingModel()
             planting.from_entry(planting_data)
             planting.commit()
             return{'message':f'{planting.planting_id} Created'},201
