@@ -23,7 +23,7 @@ class PlantingSchema(Schema):
     light_match = fields.Str(dump_only = True)
 
 class PlotSchema(Schema):
-    grid_value = fields.Str(dump_only=True)
+    grid_value = fields.Str(required=True)
     x = fields.Str(required = True)
     y = fields.Str(required = True)
     plot_owner = fields.Str(required = True)

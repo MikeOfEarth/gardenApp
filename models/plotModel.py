@@ -30,8 +30,8 @@ class PlotModel(db.Model):
 
     def from_entry(self, plot_entry):
         for k, v in plot_entry.items():
-            setattr(self, k, v)
-        #     if k!='grid_value':
-        #         setattr(self, k, v)
-        # setattr(self,'grid_value',(",".join([str(self['x']), str(self['y'])])))
+            if k!='grid_value':
+                setattr(self, k, v)
+            else:
+                setattr(self,'grid_value',(",".join([str(self['x']), str(self['y'])])))
 
