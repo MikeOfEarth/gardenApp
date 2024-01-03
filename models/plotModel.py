@@ -7,7 +7,7 @@ class PlotModel(db.Model):
     __tablename__ = 'plots'
 
     # grid_value = ",".join([str(x), str(y)])
-    grid_value = db.Column(db.Integer, primary_key = True)
+    grid_value = db.Column(db.String, primary_key = True)
     # x = db.Column(db.NUMERIC(2, 0), nullable = False)
     # y = db.Column(db.NUMERIC(2, 0), nullable = False)
     x = db.Column(db.Integer, nullable = False)
@@ -34,4 +34,4 @@ class PlotModel(db.Model):
                 setattr(self, k, v)
             else:
                 setattr(self,'grid_value',(",".join([str(self['x']), str(self['y'])])))
-
+# this doesn't work yet -> needs to be generated before assigning?
