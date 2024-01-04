@@ -48,4 +48,4 @@ class PlotList(MethodView):
             plot.commit()
             return{'message':f'{plot.grid_value} Created'},201
         except:
-            abort(400, message='Plot Already Tilled')
+            abort(400, message='Plot Already Exists')

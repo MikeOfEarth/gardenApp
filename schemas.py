@@ -5,7 +5,7 @@ class CropSchema(Schema):
     grow_time = fields.Str(required = True)
     harvest_num = fields.Str(required = True)
     harvest_per = fields.Str(required = True)
-    companions = fields.Str(required = True)
+    companions = fields.List(required = True)
     sun_pref = fields.Str(required = True)
 
 class GrowerSchema(Schema):
