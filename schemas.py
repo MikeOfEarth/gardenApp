@@ -5,14 +5,17 @@ class CropSchema(Schema):
     grow_time = fields.Str(required = True)
     harvest_num = fields.Str(required = True)
     harvest_per = fields.Str(required = True)
-    companions = fields.List(required = True)
+    companions = fields.List(fields.Str(),required = True)
     sun_pref = fields.Str(required = True)
 
 class GrowerSchema(Schema):
     grower_name = fields.Str(required = True)
     email = fields.Str(required = True)
-    password_hash = fields.Str(required = True)
-    first_name = fields.Str(required = True)
+    password = fields.Str(required = True, load_only=True)
+
+class GrowerLogin(Schema):
+    grower_name = fields.Str(required = True)
+    password = fields.Str(required = True, load_only = True)
 
 class PlantingSchema(Schema):
     planting_id = fields.Str(dump_only=True)
@@ -29,4 +32,4 @@ class PlotSchema(Schema):
     plot_owner = fields.Str(required = True)
     plot_contents = fields.Str(required = True)
     sun = fields.Str()
-    watered = fields.Str()
+    watered = fields.Bool()
