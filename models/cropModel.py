@@ -1,5 +1,5 @@
 from app import db
-from sqlalchemy import ARRAY
+from sqlalchemy import ARRAY, String
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class CropModel(db.Model):
@@ -10,7 +10,7 @@ class CropModel(db.Model):
     grow_time = db.Column(db.Integer, nullable = False)
     harvest_num = db.Column(db.Integer, nullable = False)
     harvest_per = db.Column(db.Integer, nullable = False)
-    companions = db.Column(db.String, nullable = False)
+    companions = db.Column(db.JSON, nullable = False)
     # companions = db.Column(db.ARRAY(String), nullable = False) <---- I want this to be a list but can't figure out how to work it in sqlalchemy.
     sun_pref = db.Column(db.String, nullable = False)
 
